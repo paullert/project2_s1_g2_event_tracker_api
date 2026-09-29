@@ -23,11 +23,9 @@ Table locations {
   created_at timestamp
 }
 
-Ref user_posts: locations.user_id ?> users.id // many-to-one
-
-Ref: users.id <? events.rsvp_user_id
-
-Ref: users.id <? events.creator_user_id
+Ref user_posts: locations.user_id > users.id
+Ref: users.id < events.rsvp_user_id
+Ref: users.id < events.creator_user_id
 
 Records users(id, username, role) {
   0, 'TestAdmin', 'admin'
