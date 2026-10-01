@@ -20,23 +20,9 @@ because users would only have information stored that they need access to rather
 (Role table is for backend confirmation, if someone has permissions to do something based on what role they have)
 
 ## 3. ER sketch
-Tables, primary and foreign keys, and cardinality. Edit this Mermaid diagram (it renders on GitHub;
-try changes at https://mermaid.live):
+Tables, primary and foreign keys, and cardinality. Edits to [.dbml](.dbml) automatically get rendered here through a workflow.
 
-```mermaid
-erDiagram
-    USER ||--o{ THING : owns
-    USER {
-        bigint id PK
-        string email UK
-    }
-    THING {
-        bigint id PK
-        bigint user_id FK
-        string name
-        string notes "nullable"
-    }
-```
+![ER Diagram of Event Scheduling Database](diagrams/schema.svg)
 
 ## 4. Endpoints
 | Verb   | Path                   | Auth   | Purpose                                                     |
