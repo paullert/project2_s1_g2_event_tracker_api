@@ -62,10 +62,10 @@ The two things most likely to go wrong, and what you will do first to find out.
 2. Google OAuth might have a problem if the service goes down or the people sessions aren't being saved. We will check Google for a statement since Google Oauth is a largely used service.
 
 ## 7. Team and Sprint 1
-Billy is working on allowing managers to host the event. 
-Ann is working on allowing users to see how many people are attending an event.
-Sarah is working on users are able to see what the events they are invited to.
-Billy is working on managers being able to see who is attending the event.
+ - Billy is working on allowing managers to host the event. 
+ - Ann is working on allowing users to see how many people are attending an event.
+ - Sarah is working on users are able to see what the events they are invited to.
+ - Paul is working on managers being able to see who is attending the event.
 
 [Project board](https://github.com/users/paullert/projects/1)
 
