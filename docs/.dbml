@@ -1,0 +1,28 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table events {
+  creator_user_id integer [not null]
+  rsvp_user_id integer [not null]
+  created_at timestamp
+}
+
+Table users {
+  id integer [primary key]
+  username varchar
+  role varchar
+  created_at timestamp
+}
+
+Table locations {
+  id integer [primary key]
+  location_name varchar
+  address varchar
+  desc text [note: 'Content of the post']
+  user_id integer [not null]
+  created_at timestamp
+}
+
+Ref user_posts: locations.user_id > users.id
+Ref: users.id < events.rsvp_user_id
+Ref: users.id < events.creator_user_id

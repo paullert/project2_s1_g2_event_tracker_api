@@ -1,0 +1,38 @@
+name: Convert DBML to SVG
+
+on:
+  push:
+    paths:
+      - 'docs/.dbml'
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Create output directory
+        run: mkdir -p docs/diagrams
+
+      - name: Show DBML around failing line
+        run: |
+          nl -ba docs/.dbml | sed -n '22,30p'
+
+      - name: Render DBML to SVG
+        run: |
+          npx --yes @softwaretechnik/dbml-renderer@1.0.31 \
+            -i docs/.dbml \
+            -o docs/diagrams/schema.svg
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Auto-update database SVG diagram'
+          file_pattern: 'docs/diagrams/*.svg'
